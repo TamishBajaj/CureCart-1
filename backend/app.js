@@ -5,8 +5,11 @@ const app=express()
 const cookieParser=require('cookie-parser')
 
 const connectDB=require('./db/connect')
+
 const product= require("./routes/productRoute")
 const user=require('./routes/userRoute')
+const order=require('./routes/orderRoute')
+
 const errorMiddleware=require('./middleware/error')
 
 // Handelling uncaugth exceptions
@@ -30,6 +33,7 @@ app.use(errorMiddleware)
 
 app.use("/api/v1/tasks",product)
 app.use("/api/v1/tasks",user)
+app.use("/api/v1/tasks",order)
 
 const port=process.env.PORT || 3000
 
